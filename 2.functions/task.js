@@ -64,12 +64,16 @@ function averageEvenElementsWorker(...arr) {
   for (let i = 0; i < arr.length; i++) {
     if (arr[i] % 2 === 0) {
       sumEvenElement += arr[i];
-      countEvenElement += 1;
+      countEvenElement ++;
     }
   }
   return sumEvenElement / countEvenElement;
 }
 // Задача 3
 function makeWork (arrOfArr, func) {
-
+  let maxWorkerResult = -Infinity;
+   for (let i = 0; i < arrOfArr.length; i++) {
+     maxWorkerResult.push(func(...arrOfArr[i]));
+   }
+  return Math.max(...maxWorkerResult);
 }
