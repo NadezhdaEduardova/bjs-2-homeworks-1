@@ -1,22 +1,22 @@
 // Задача 1
 function getArrayParams(...arr) {
-  let mim = Infinity;
-  let max = -Infinity;
+  let min = arr[0];
+  let max = arr[0];
   let sum = 0;
   
   for (let i = 0; i < arr.length; i++) {
     if (arr[i] > max) {
       max = arr[i];
-    }
-    if (arr[i] < min) {
+    } else if (arr[i] < min) {
       min = arr[i];
     }
     sum += arr[i];
   }
-  let avg = (sum / arr.length);
+  let avg = (sum / arr.length).toFixed(2);
 
-  return { min: min, max: max, avg: Number(avg.toFixed(2)};
+  return {min: min, max: max, avg: Number(avg)};
 }
+getArrayParams(-99, 99, 10);
 
 // Задача 2
 function summElementsWorker(...arr) {
@@ -69,11 +69,16 @@ function averageEvenElementsWorker(...arr) {
   }
   return sumEvenElement / countEvenElement;
 }
+
+
 // Задача 3
 function makeWork (arrOfArr, func) {
   let maxWorkerResult = -Infinity;
    for (let i = 0; i < arrOfArr.length; i++) {
      maxWorkerResult.push(func(...arrOfArr[i]));
    }
-  return Math.max(...maxWorkerResult);
+  return Number(Math.max(...maxWorkerResult));
 }
+
+
+              
