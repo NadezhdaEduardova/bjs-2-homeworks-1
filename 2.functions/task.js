@@ -27,7 +27,7 @@ function summElementsWorker(...arr) {
   for (let i = 0; i < arr.length; i++) {
     sum += arr[i];
   }
-  retern sum;
+  return sum;
 }
 
 function differenceMaxMinWorker(...arr) {
@@ -36,7 +36,7 @@ function differenceMaxMinWorker(...arr) {
   }
   let min = Math.min(...arr);
   let max = Math.max(...arr);
-  retern max - min;
+  return max - min;
 }
 
 function differenceEvenOddWorker(...arr) {
