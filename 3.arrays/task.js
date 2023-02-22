@@ -1,13 +1,12 @@
 // Задача 1
 function compareArrays(arr1, arr2) {
-  let arr1 = [];
-  let arr2 = [];
-  if (arr1.length === arr2.length && arr1.every(element, index) => element === arr2[index]) {
-    retern true;
+  if (arr1.length === arr2.length && arr1.every((element, index) => element === arr2[index])) {
+    return true;
   } else {
-    retern false;
+    return false;
   }
 }
+compareArrays([2,8,6,4], [2,4,6,8]);
   
  // Задача 2 
 const people = [
