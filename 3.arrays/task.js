@@ -9,6 +9,19 @@ function compareArrays(arr1, arr2) {
 compareArrays([2,8,6,4], [2,4,6,8]);
   
  // Задача 2 
+
+function getUsersNamesInAgeRange(users, gender) {
+  let result = users.filter(user => user.gender === gender).map(user => user.age).reduce((acc, item, index, array) => {
+    acc += item; 
+    if (index === array.length - 1) {
+      return acc / array.length;
+    } else {
+    return acc;
+    }
+  }, 0); 
+  return result;
+}
+
 const people = [
   {firstName: "Александр", secondName: "Карпов", age: 17, gender: "мужской"},
   {firstName: "Егор", secondName: "Морозов", age: 21, gender: "мужской"},
@@ -24,7 +37,8 @@ const people = [
   {firstName: "Владислав", secondName: "Давыдов", age: 40, gender: "мужской"},
   {firstName: "Илья", secondName: "Казаков", age: 35, gender: "мужской"},
   {firstName: "Евгений", secondName: "Кузьмин", age: 19, gender: "мужской"},
-]
-function getUsersNamesInAgeRange(users, gender) {
-  
-}
+];
+console.log(getUsersNamesInAgeRange(people, "мужской"));
+console.log(getUsersNamesInAgeRange(people, "женский"));
+console.log(getUsersNamesInAgeRange([], "женский"));
+console.log(getUsersNamesInAgeRange(people, "инопланетянин"));
