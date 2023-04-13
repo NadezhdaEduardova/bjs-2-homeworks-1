@@ -7,6 +7,9 @@ function compareArrays(arr1, arr2) {
   }
 }
 compareArrays([2,8,6,4], [2,4,6,8]);
+
+// второе решение
+// const compareArrays = ((arr1, arr2) => arr1.lenght === arr2.lenght && arr1.every((item, index) => item === arr2[index]))
   
  // Задача 2 
 
@@ -21,6 +24,12 @@ function getUsersNamesInAgeRange(users, gender) {
   }, 0); 
   return result;
 }
+
+// Второй способ
+//function getUsersNamesInAgeRange(users, gender) {
+//  let result = users.filter(users => users.gender === gender).reduce((acc, item, index, array) => acc + item.age / array.length, 0);
+//  return result;
+//}
 
 const people = [
   {firstName: "Александр", secondName: "Карпов", age: 17, gender: "мужской"},
