@@ -35,7 +35,7 @@ class Triangle {
   
   get area() {
     const semiPer = this.perimeter / 2;
-    return Area(Math.sqrt(semiPer * (semiPer - this.a) * (semiPer - this.b) * (semiPer - this.c)).toFoxed(3));
+    return parseFloat(Math.sqrt(semiPer * (semiPer - this.a) * (semiPer - this.b) * (semiPer - this.c)).toFixed(3));
   }
 }
   
