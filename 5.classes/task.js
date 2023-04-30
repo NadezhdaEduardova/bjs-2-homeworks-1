@@ -18,7 +18,7 @@ class PrintEditionItem {
     } else {
       this._state = newState;
     }
-  }
+  };
   get state() {
     return this._state;
   }
@@ -93,7 +93,7 @@ class Library {
   giveBookByName(bookName) {
     for (let book in this.books) {
       if (this.books[book].name === bookName) {
-        return this.books.splice(book, 1);
+        return this.books.splice((book, 1)[0]);
       }
     }
     return null;
@@ -101,22 +101,8 @@ class Library {
 }
 const library = new Library("Библиотека имени Ленина");
 
-library.addBook(
- new DetectiveBook(
-   "Артур Конан Дойл",
-   "Полное собрание повестей и рассказов о Шерлоке Холмсе в одном томе",
-   2019,
-   1008
- )
-);
-library.addBook(
- new FantasticBook(
-   "Аркадий и Борис Стругацкие",
-   "Пикник на обочине",
-   1972,
-   168
- )
-);
+library.addBook(new DetectiveBook("Артур Конан Дойл", "Полное собрание", 2019, 1008));
+library.addBook(new FantasticBook("Аркадий и Борис Стругацкие", "Пикник на обочине", 1972, 168));
 library.addBook(new NovelBook("Герберт Уэллс", "Машина времени", 1895, 138));
 library.addBook(new Magazine("Мурзилка", 1924, 60));
 
