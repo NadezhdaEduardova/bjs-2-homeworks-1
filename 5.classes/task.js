@@ -90,15 +90,17 @@ class Library {
     return null;
   }
   
-  giveBookByName(bookName) {
+   giveBookByName(bookName) {
     for (let book in this.books) {
       if (this.books[book].name === bookName) {
-        return this.books.splice((book, 1)[0]);
+        return this.books.splice(book, 1)[0];
       }
     }
     return null;
   }
 }
+  
+
 const library = new Library("Библиотека имени Ленина");
 
 library.addBook(new DetectiveBook("Артур Конан Дойл", "Полное собрание", 2019, 1008));
