@@ -1,10 +1,10 @@
 class AlarmClock {
-  cnstruction (alarmCollection, intervalId) {
+  constructor () {
     this.alarmCollection = [];
     this.intervalId = null;
   }
   
-  function addClock(time, callback) {
+  addClock(time, callback) {
      if (!time || callback === undefined) {
        throw new Error("Отсутствуют обязательные аргументы");
      }
@@ -14,15 +14,15 @@ class AlarmClock {
      this.alarmCollection.push({callback, time, canCall: true});
   }
   
-  function removeClock(time) {
+  removeClock(time) {
      this.alarmCollection = this.alarmCollection.filter(alarm => alarm.time !== time);
   }
   
-  function getCurrentFormattedTime() {
+  getCurrentFormattedTime() {
      return new Date().toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'});
   }
   
-  function start() {
+  start() {
      if (this.intervalId !== null) {
        return;
     }
@@ -30,8 +30,8 @@ class AlarmClock {
        this.alarmCollection.forEach((alarm) => {
          
          if (alarm.time === this.getCurrentFormattedTime() && alarm.canCall) {
-           this.alarm.canCall = false;
-           this.alarm.callback();
+           alarm.canCall = false;
+           alarm.callback();
          }
          
        }),
@@ -39,17 +39,17 @@ class AlarmClock {
      ); 
    } 
    
-   function stop() {
+   stop() {
       clearInterval(this.intervalId);
       this.intervalId = null;
    }
    
-   function resetAllCalls() {
-      this.alarmCollection.forEach(alarm) => 
-        alarm.canCall = true;
+   resetAllCalls() {
+      this.alarmCollection.forEach((alarm) => 
+        (alarm.canCall = true));
    }
       
-  function clearAlarms() {
+  clearAlarms() {
      this.stop();
      this.alarmCollection = [];
    }
