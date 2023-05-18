@@ -27,25 +27,23 @@ function cachingDecoratorNew(func) {
 function debounceDecoratorNew(func, delay) {
 
   let timeoutId = null;
-  wrapper.count ===0;
-  wrapper.allCount ===0;
+  wrapper.count = 0;
+  wrapper.allCount = 0;
   function wrapper(...args) {
-      if (timeoutId === 0) {
+      if (timeoutId == null) {
         func(...args);
-        wrapper.count ++;
+        wrapper.count++;
       }
       
       if (timeoutId) {
-        console.log("Удалили текуий таймаут");
         clearTimeout(timeoutId);
       }
-      console.log("Создаем новый таймаут");
       timeoutId = setTimeout(() => {
-         timeoutId =null;
-         console.log(func(...args));
-         console.log("Вызывали колбек");
+         timeoutId = true;
+         func(...args);
+         wrapper.count++;
       }, delay); 
-      wrapper.allCount ++;
+      wrapper.allCount++;
   }
    return wrapper;
 }
