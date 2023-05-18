@@ -26,13 +26,13 @@ function cachingDecoratorNew(func) {
 //Задача № 2
 function debounceDecoratorNew(func, delay) {
 
-  let timrId = null;
+  let timeoutId = null;
   wrapper.count ===0;
   wrapper.allCount ===0;
   function wrapper(...args) {
       if (timeoutId === 0) {
         func(...args);
-        wrapper.cunt ++;
+        wrapper.count ++;
       }
       
       if (timeoutId) {
@@ -46,7 +46,6 @@ function debounceDecoratorNew(func, delay) {
          console.log("Вызывали колбек");
       }, delay); 
       wrapper.allCount ++;
-    
-      return wrapper;
   }
+   return wrapper;
 }
